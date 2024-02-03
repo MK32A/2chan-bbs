@@ -32,7 +32,7 @@ $comment_array = $statement;
 </head>
 <body>
     <header>
-        <h1 class="title">監獄ちゃんねる掲示板</h1>
+        <h1 class="title">監獄ちゃんねる掲示板fffffff</h1>
         <hr>
 
         <!-- スレッドエリア -->
