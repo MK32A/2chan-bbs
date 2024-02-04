@@ -3,10 +3,18 @@
 include_once("./app/database/connect.php");
 
 if (isset($_POST["submitButton"])) {
-    $username = $_POST["username"];
-    var_dump($username);
-    $body = $_POST["body"];
-    var_dump($body);
+
+    $post_date = date("Y-m-d H:i:s");
+
+    $sql = "INSERT INTO `comment` (`username`, `body`, `post_date`) VALUES (:username, :body, :post_date);";
+    $statement = $pdo->prepare($sql);
+
+    // 値をセット
+    $statement->bindParam(":username", $_POST["username"], PDO::PARAM_STR);
+    $statement->bindParam(":body", $_POST["body"], PDO::PARAM_STR);
+    $statement->bindParam(":post_date", $post_date, PDO::PARAM_STR);
+
+    $statement->execute();
 }
 
 $comment_array = array();
