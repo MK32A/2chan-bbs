@@ -2,17 +2,17 @@
 include("./app/database/connect.php");
 include("app/functions/comment_add.php");
 include("app/functions/comment_get.php");
+include("app/functions/thread_get.php");
 ?>
-
-
-<!-- スレッドエリア -->
-<div class="threadWrapper">
-    <div class="childWrapper">
-        <div class="threadTitle">
-            <span>【タイトル】</span>
-            <h1>監獄ちゃんねる掲示板</h1>
+<?php foreach ($thread_array as $thread) : ?>
+    <div class="threadWrapper">
+        <div class="childWrapper">
+            <div class="threadTitle">
+                <span>【タイトル】</span>
+                <h1><?php echo $thread["title"] ?></h1>
+            </div>
         </div>
+        <?php include("commentSection.php"); ?>
+        <?php include("commentForm.php"); ?>
     </div>
-    <?php include("commentSection.php"); ?>
-    <?php include("commentForm.php"); ?>
-</div>
+<?php endforeach; ?>

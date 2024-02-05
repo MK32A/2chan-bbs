@@ -1,7 +1,7 @@
 <?php
 
 include_once("../database/connect.php");
-
+include("../../app/functions/thread_add.php");
 ?>
 
 <!DOCTYPE html>
@@ -16,18 +16,21 @@ include_once("../database/connect.php");
         <?php include("../../app/parts/header.php"); ?>
         <?php include("../../app/parts/validation.php"); ?>
 
+        <div style="padding-left: 36px; color: blue;">
+        <h2 style="margin-top: 20px; margin-bottom: 0;">新規スレッド立ち上げ場</h2>
+    </div>
+    <form method="POST" class="formWrapper">
         <div>
-            <h2>新規スレッド立ち上げ場</h2>
-        </div>
-        <form method="POST" class="formWrapper">
             <label>スレッド名</label>
             <input type="text" name="title">
             <label>名前</label>
             <input type="text" name="username">
-            <div>
-                <textarea name="body" class="commentTextArea"></textarea>
-            </div>
-            <input type="submit" value="立ち上げ" class="threadSubmitButton">
-        </form>
+        </div>
+        <div>
+            <textarea name="body" class="commentTextArea"></textarea>
+        </div>
+        <input type="submit" value="立ち上げ" name="threadSubmitButton">
+    </form>
 </body>
+
 </html>
